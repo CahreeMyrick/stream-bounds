@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/main.py
+src/online_bounds.py
+src/p2.py
+src/stream_bounds.egg-info/PKG-INFO
+src/stream_bounds.egg-info/SOURCES.txt
+src/stream_bounds.egg-info/dependency_links.txt
+src/stream_bounds.egg-info/requires.txt
+src/stream_bounds.egg-info/top_level.txt
+tests/test_online_bounds.py
+tests/test_p2.py
