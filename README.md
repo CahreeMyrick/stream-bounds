@@ -18,7 +18,7 @@ This repo shows batch vs streaming trade-offs with rigorous, reproducible code.
 
 ----------------------------------------------------------------
 
-## Algorithms (one-liners)
+## Algorithms
 
 - Welford mean/var: numerically stable, O(1) state, single pass.
 - P2 (Jain & Chlamtac, 1985): O(1) space/time streaming estimator for one quantile using 5 markers.
