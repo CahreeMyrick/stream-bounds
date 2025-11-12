@@ -40,13 +40,13 @@ stream-bounds/
 |   |-- test_p2.py            # P2 unit test
 |   `-- test_online_bounds.py # sup monotonicity; Welford vs numpy
 |-- notebooks/
-|   `-- demo.ipynb            # Plots: P2 error vs n/outliers; latency histogram
+|   
 |-- benchmarks/
-|   `-- microbench.py         # (optional) batch timing harness
+|   
 |-- .github/workflows/ci.yml  # pytest on push/PR
 |-- pyproject.toml            # deps + ruff/black/pytest config
-|-- requirements.txt          # alternative to pyproject deps
-|-- README.md                 # you are here
+|-- requirements.txt          
+|-- README.md                 
 |-- LICENSE
 `-- .gitignore
 ```
@@ -86,35 +86,6 @@ Outputs
 --outlier-rate    Fraction of rare spikes (default 0.005)
 --q               Quantile to track (repeatable; default 0.1, 0.5, 0.9)
 ```
-
-----------------------------------------------------------------
-
-## Benchmarks (example expectations)
-
-- Welford mean/std matches NumPy within ~1e-3 on 50k+ samples.
-- P2(0.5) typically within < 0.04*sigma on Normal(mu, sigma^2) at n = 2e5.
-- Latency on a modern laptop: tens of microseconds per sample (measure yours).
-- Linf(median) is less sensitive to spikes than Linf(mean).
-
-See `notebooks/demo.ipynb` to reproduce and plot error vs n and vs outlier rate.
-
-----------------------------------------------------------------
-
-## Pitfalls and gotchas
-
-- P2 indexing: Use 1-based positions [1,2,3,4,5] and update markers >= k.
-- Monotonicity: Fall back to linear prediction when parabolic breaks monotonicity; clamp if needed.
-- Definition drift: Do not switch envelope centers midstream; track both from t = 1 (median undefined until ready).
-- "Exact" quantiles vocabulary: np.quantile(method="linear") is the standard reference, not an order-statistic exact pick.
-
-----------------------------------------------------------------
-
-## Tests and CI
-
-```
-pytest
-```
-CI runs pytest on push/PR. Add more distributional tests if you extend P2 to multiple quantiles.
 
 ----------------------------------------------------------------
 
