@@ -8,7 +8,7 @@ The online tracker reports latency and keeps constant-sized state.
 
 ## Why this matters
 
-You often cannot store the full stream (telemetry, embedded, ops). You still need:
+You often cannot store the full stream. You still need:
 - Bounds: inf, sup (exist by completeness; running sup_T is monotone increasing).
 - Robust spread: Linf envelope radius max_t |x_t - c_t| around a center c_t (mean vs median).
 - Quantiles: percentiles for thresholds/alerts without O(n) memory.
